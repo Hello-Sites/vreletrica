@@ -18,6 +18,8 @@ input,
 button,
 textarea{
     font: 400 1.7rem/1 'Montserrat Alternates', sans-serif;
+    color: #242424;
+    line-height: 2rem;
 }
 
 .nunito {
@@ -27,4 +29,30 @@ textarea{
 
 .container {
     padding: 0 2rem;
+}
+
+.icon-wallet {
+    background: url('https://images.vexels.com/media/users/3/137089/isolated/preview/c3286d4d32fa90ebcf09b488654612b9-iacute-cone-de-carteira-by-vexels.png');
+    background-size: 3.8rem 3.8rem;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 5.2rem;
+    height: 5.2rem;
+    margin: 0 auto;
+
+    border: 2px solid #242424;
+    border-radius: 100%;
+
+}
+
+button {
+    border-radius: 2px;
+    font-size: 1.5rem;
+    background: none;
+    padding: 0.7rem 1.4rem;
+    font-weight: 400;
+    border: 1px solid #f4f4f4;
+
+    font-family: 'Nunito', sans-serif;
 }
