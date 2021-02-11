@@ -15,12 +15,12 @@
         <div id="page-landing">
             <div id="page-banner">
                 <header class="container" id="page-header">
-                    <img src="img/logo.png" alt="VR Elétrica Residencial">
+                    <img class="inverse-page-header" src="img/logo.png" alt="VR Elétrica Residencial">
                     <nav>
                         <ul>
-                            <a class="smooth-scroll" href="#page-contact"><li>Contato</li></a>
-                            <a class="smooth-scroll" href="#"><li>Link 2</li></a>
-                            <a class="smooth-scroll" href="#"><li>Link 3</li></a>
+                            <li class="smooth-scroll inverse-page-header" goto="#page-contact">Contato</li>
+                            <li class="smooth-scroll inverse-page-header" goto="#">Link 2</li>
+                            <li class="smooth-scroll inverse-page-header" goto="#">Link 3</li>
                         </ul>
                     </nav>
                 </header>
@@ -32,12 +32,53 @@
                     <br>
                     Não mudamos o que é perfeito nem criamos exceções.</p>
 
-                    <button onclick="alert('scroll to contact')">Contato</button>
+                    <button class="smooth-scroll" onclick="#page-contact" href="#page-contact">Contato</button>
                     </section>
                 </main>
             </div>
 
-            <div id="page-contact" class="container">
+            <div id="page-about" class="container page-section start-hidden">
+                <section id="about-message">
+                    <h2 class="nunito">Sobre Nós</h2>
+                    <p>Nós amamos o que fazemos. Frase que fica bem aqui</p>
+                </section>
+
+                <section class="about-flyers">
+                    <div class="about-flyer">
+                        <p class="icon-wallet"></p>
+                        <h3 class="nunito">Título</h3>
+                        <p>Descrição deste flyer. Descrição deste flyer. Descrição deste flyer. Descrição deste flyer.</p>
+                    </div>
+
+                    <div class="about-flyer">
+                        <p class="icon-wallet"></p>
+                        <h3 class="nunito">Título</h3>
+                        <p>Descrição deste flyer. Descrição deste flyer. Descrição deste flyer. Descrição deste flyer.</p>
+                    </div>
+
+                    <div class="about-flyer">
+                        <p class="icon-wallet"></p>
+                        <h3 class="nunito">Título</h3>
+                        <p>Descrição deste flyer. Descrição deste flyer. Descrição deste flyer. Descrição deste flyer.</p>
+                    </div>
+                </section>
+
+                <section class="about-flyers">
+                    <div class="about-flyer">
+                        <p class="icon-wallet"></p>
+                        <h3 class="nunito">Título</h3>
+                        <p>Descrição deste flyer. Descrição deste flyer. Descrição deste flyer. Descrição deste flyer.</p>
+                    </div>
+
+                    <div class="about-flyer">
+                        <p class="icon-wallet"></p>
+                        <h3 class="nunito">Título</h3>
+                        <p>Descrição deste flyer. Descrição deste flyer. Descrição deste flyer. Descrição deste flyer.</p>
+                    </div>
+                </section>
+            </div>
+
+            <div id="page-contact" class="container page-section start-hidden">
                 <section id="contact-flyer">
                     <div id="location-advise">
                         <h2 class="nunito">Entre em contato conosco</h2>
@@ -85,7 +126,7 @@
                             </div>
 
                             <div>
-                                <button id= "gform-button" type="submit" value="submit">Enviar</button>
+                                <button id= "gform-button" type="submit" value="submit" goto="#">Enviar</button>
                             </div>
                         </fieldset>
                     </form>
@@ -100,5 +141,14 @@
         </div>
         <script src="js/app.js"></script>
         <script src="js/contact-form.js"></script>
+        <script>
+            headerColorControl({
+            headerId: 'page-header',
+            normal: '#fff',
+            inverted: '#242424'
+            })
+            smoothScroll()
+            controllAppearSections()
+        </script>
     </body>
 </html>

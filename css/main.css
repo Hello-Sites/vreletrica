@@ -11,7 +11,8 @@
 body {
     background: #fff;
     height: 100vh;
-    width: 99vw;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 body,
@@ -25,14 +26,10 @@ textarea{
 
 a{
     text-decoration: none;
-    color: #000;
 }
 
-a:hover {
-    color: rgba(0,0,0,0.7);
-}
 
-.inverted {
+.inversed {
     filter: invert(100%);
 }
 
@@ -45,6 +42,10 @@ a:hover {
     padding: 0 2rem;
 }
 
+.page-section {
+    width: 100vw;
+    padding: 6rem 0;
+}
 .icon-wallet {
     background: url('https://images.vexels.com/media/users/3/137089/isolated/preview/c3286d4d32fa90ebcf09b488654612b9-iacute-cone-de-carteira-by-vexels.png');
     background-size: 3.8rem 3.8rem;
