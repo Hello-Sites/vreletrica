@@ -3,6 +3,7 @@
     <head>
         <title>VR Elétrica</title>
         <meta charset="UTF-8" />
+
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@200;300;400&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
@@ -50,40 +51,46 @@
                     </div>
                 </section>
                 <section id="contact-form">
-                    <form class="" action="index.html" method="post">
-                            <fieldset class="form-items">
+
+                    <div id="gform-sucess-message" style="" class="form-message">
+                        <h2 class="nunito">Enviado com sucesso!</h2>
+                        <p>Agradeçemos seu contato. Retornaremos em breve!</p>
+                    </div>
+                    <form style="" id="gform" name="gform" target="hidden_iframe" onsubmit="submitted=true; showSendingMessage('gform')" action="https://docs.google.com/forms/d/e/1FAIpQLSeiUv8g2cxeVbahsw5gFKJ6rxJast9Ys-kejeP1hOBTH4izLg/formResponse?">
+                            <fieldset>
 
                             <div class="inline-form-items">
                                 <div>
-                                    <label for="">Nome</label>
-                                    <input type="text" name="" value="" required>
+                                    <label for="entry.792630165">Nome</label>
+                                    <input type="text" name="entry.792630165" id="entry.792630165" required>
                                 </div>
                                 <div>
-                                    <label for="">Sobrenome</label>
-                                    <input type="text" name="" value="" required>
+                                    <label for="entry.760884296">Sobrenome</label>
+                                    <input type="text" name="entry.760884296" id="entry.760884296" required>
                                 </div>
                             </div>
 
                             <div>
-                                <label for="">Email</label>
-                                <input type="text" name="" value="" required>
+                                <label for="entry.1448010343">Email</label>
+                                <input pattern="Math.random()" type="text" onfocus="checkValidEmail(this.id)" onclick="checkValidEmail(this.id)" name="entry.1448010343" id="entry.1448010343" required>
                             </div>
                             <div>
-                                <label for="">Como podemos ajudá-lo?</label>
-                                <textarea type="text" name="" value="" rows="7" style="resize: none"></textarea>
+                                <label for="entry.1078412721">Como podemos ajudá-lo?</label>
+                                <textarea type="text" name="entry.1078412721" id="entry.1078412721" rows="7" style="resize: none"></textarea>
                             </div>
 
                             <div class="contact-checkbox">
-                                <label class ="checkbox-label" for="">
-                                <input type="checkbox" name="" value="Urgente">
-                                <span>Urgente<span></label>
+                                <input type="checkbox" name="entry.2095266014" id="entry.2095266014" value="Urgente">
+                                <label class ="checkbox-label" for="entry.2095266014">Urgente</label>
                             </div>
 
                             <div>
-                                <button type="submit">Enviar</button>
+                                <button id= "gform-button" type="submit" value="submit">Enviar</button>
                             </div>
                         </fieldset>
                     </form>
+
+                    <iframe id="hidden_iframe" name="hidden_iframe" style="display: none;" onload="if(submitted){successfullySubmittedForm('gform')}"></iframe>
                 </section>
             </div>
 
@@ -91,5 +98,7 @@
 
             </footer>
         </div>
+
+        <script src="js/contact-form.js"></script>
     </body>
 </html>
