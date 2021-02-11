@@ -14,13 +14,13 @@
     <body>
         <div id="page-landing">
             <div id="page-banner">
-                <header class="container">
+                <header class="container" id="page-header">
                     <img src="img/logo.png" alt="VR Elétrica Residencial">
                     <nav>
                         <ul>
-                            <a onclick="alert('scroll to link 1')"><li>Link 1</li></a>
-                            <a onclick="alert('scroll to link 2')"><li>Link 2</li></a>
-                            <a onclick="alert('scroll to link 3')"><li>Link 3</li></a>
+                            <a class="smooth-scroll" href="#page-contact"><li>Contato</li></a>
+                            <a class="smooth-scroll" href="#"><li>Link 2</li></a>
+                            <a class="smooth-scroll" href="#"><li>Link 3</li></a>
                         </ul>
                     </nav>
                 </header>
@@ -56,7 +56,7 @@
                         <h2 class="nunito">Enviado com sucesso!</h2>
                         <p>Agradeçemos seu contato. Retornaremos em breve!</p>
                     </div>
-                    <form style="" id="gform" name="gform" target="hidden_iframe" onsubmit="submitted=true; showSendingMessage('gform')" action="https://docs.google.com/forms/d/e/1FAIpQLSeiUv8g2cxeVbahsw5gFKJ6rxJast9Ys-kejeP1hOBTH4izLg/formResponse?">
+                    <form  id="gform" name="gform" target="hidden_iframe" onsubmit="submitted=true; showSendingMessage('gform')" action="https://docs.google.com/forms/d/e/1FAIpQLSeiUv8g2cxeVbahsw5gFKJ6rxJast9Ys-kejeP1hOBTH4izLg/formResponse?">
                             <fieldset>
 
                             <div class="inline-form-items">
@@ -98,7 +98,7 @@
 
             </footer>
         </div>
-
+        <script src="js/app.js"></script>
         <script src="js/contact-form.js"></script>
     </body>
 </html>
