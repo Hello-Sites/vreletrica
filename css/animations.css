@@ -10,8 +10,10 @@
 @keyframes inverseColor {
     from {
         filter: invert(0%);
+        -webkit-filter: invert(0%);
     }
     to {
         filter: invert(100%);
+        -webkit-filter: invert(100%);
     }
 }

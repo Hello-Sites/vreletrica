@@ -4,16 +4,21 @@ function headerColorControl({headerId, normal, inverted, pageTriggers}){
     const pageSections = document.getElementsByClassName('page-section')
 
     const colors = { false: normal, true: inverted }
-
-    document.addEventListener('scroll', () => {
+    
+    control()
+    
+    document.addEventListener('scroll', control)
         //banner.offsetHeight <  window.pageYOffset + header.offsetHeight
-
+    
+    function control () {
     const currentSection =  Array.from(pageSections).map( (section, i, arr)=> {
         section.y = section.getBoundingClientRect().y
         section.end = section.getBoundingClientRect().bottom
 
         for(const elem of arr){
             elem.y = elem.getBoundingClientRect().y
+            
+            //TODO: Aumentar o trigger para que quando clicar no link já mudar a cor do header.
             if(section.y - header.offsetHeight < elem.y && section.y <= 0 + header.offsetHeight && section.end >= 0){
                 return Object.assign(section, {bg: getComputedStyle(section).backgroundColor})
             }
@@ -52,14 +57,14 @@ if( onTrigger() ){
 }
     }
 
-})
+}
 }
 
 
 function changeBackgroundColor({from, to, element})  {
     element.animate([ {backgroundColor: from}, {backgroundColor: to}],
     {
-        duration: 200,
+        duration: 100,
         fill: 'forwards'
     }
     )

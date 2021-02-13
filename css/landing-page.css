@@ -60,11 +60,14 @@ main h1 {
 
 .about-flyers {
     display : flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    padding: 6rem;
 }
 
 .about-flyers div {
-    width: 26vw;
+    flex: 1 1 35rem;
     min-height: 25rem;
     margin: 2rem;
     padding: 3rem;
@@ -92,10 +95,51 @@ main h1 {
     text-align: center;
     
     background: var(--bg-gray);
+    
+    
 }
 
 #page-service .section-message {
     color: var(--thr-color);
+    margin-bottom: 6rem;
+}
+
+#service-flyer {
+    
+    padding: 6rem;
+        
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+#service-flyer div{
+    background: #fff;
+    
+    flex: 1 1 32rem;
+    max-width: 38rem;
+    height: 25rem;
+    margin: 1.2rem;
+    border-radius: 6px;
+    
+    display: block;
+    text-align: left;
+    
+    padding: 2rem;
+}
+
+#service-flyer div p {
+    color: var(--sec-color);
+}
+
+#service-flyer div p[class~="icon"] {
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+#service-flyer div h2 {
+    margin: 2rem 0;
 }
 
 /*== Contact Section ==*/

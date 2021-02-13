@@ -13,7 +13,7 @@
     --bg-gray-s: #f5f5f5;
 
     --first-color: #242424;
-    --sec-color: #8c8c8c;
+    --sec-color: #6a6a6a;
     --thr-color: #fff;
     --nav-hover-color: orange;
 
@@ -72,6 +72,17 @@ nav a:hover {
 a{
     color: var(--first-color);
     text-decoration: none;
+}
+
+button {
+    border-radius: 2px;
+    font-size: 1.5rem;
+    background: none;
+    padding: 0.7rem 1.4rem;
+    font-weight: 400;
+    border: 1px solid var(--thr-color);
+
+    font-family: 'Nunito', sans-serif;
 }
 
 fieldset {
@@ -138,32 +149,45 @@ fieldset button {
 }
 
 .wallet {
-    background-image: url('../img/wallet-icon.svg');
+    background-image: url('../img/bxs-wallet.svg');
 }
 
 .anchor {
-    background-image: url('../img/anchor-icon.svg');
+    background-image: url('../img/bxs-anchor.svg');
 }
 
 .smile {
-    background-image: url('../img/smile-icon.svg');
+    background-image: url('../img/bxs-smile.svg');
 }
 
 .shield {
-    background-image: url('../img/shield-icon.svg');
+    background-image: url('../img/bxs-shield.svg');
 }
 
-
-button {
-    border-radius: 2px;
-    font-size: 1.5rem;
-    background: none;
-    padding: 0.7rem 1.4rem;
-    font-weight: 400;
-    border: 1px solid var(--sec-color);
-
-    font-family: 'Nunito', sans-serif;
+.box {
+    background-image: url('../img/bxs-box.svg');
 }
+
+.briefcase {
+    background-image: url('../img/bxs-briefcase.svg');
+}
+
+.bulb {
+    background-image: url('../img/bxs-bulb.svg');
+}
+
+.stopwatch {
+    background-image: url('../img/bxs-stopwatch.svg');
+}
+
+.wrench {
+    background-image: url('../img/bxs-wrench.svg');
+}
+
+.dollar {
+    background-image: url('../img/bxs-dollar.svg');
+}
+
 
 
 .inline-form-items {
@@ -201,8 +225,11 @@ button {
 
 /* === Animations Classes ===*/
 .inversed {
-   animation: inverseColor 1s forwards;
+    animation: inverseColor 1s forwards;
     animation-play-state: running;
+    
+    -webkit-animation: inverseColor 1s forwards;
+    -webkit-animation-play-state: running;
 }
 
 .appear {
