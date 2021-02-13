@@ -66,21 +66,33 @@ function changeBackgroundColor({from, to, element})  {
 }
 
 function smoothScroll(){
+    
+    const unsupported = [/Android/i, /webOS/i, /iPhone/i, /iPad/i, /iPod/i, /BlackBerry/i, /Windows Phone/i];
+    
+    for(const platform of unsupported){
+        if(navigator.userAgent.match(platform)){
+            console.warn('Smooth scrolling has been disabled for your device.')
+            return
+        }
+    }
+    
     const items = {
         links: document.getElementsByTagName('a'),
         buttons: document.getElementsByTagName('button'),
-        generic: document.getElementsByClassName('smooth-scroll')
+        generic: document.getElementsByClassName('smooth-scroll'),
+        images: document.getElementsByTagName('img')
     }
 
     for(const type in items){
         for(const item of items[type]){
-            const targetId = item.getAttribute('onclick') ||  item.getAttribute('href') || item.getAttribute('goto')
+            const targetId = item.getAttribute('href') || item.getAttribute('goto')
+            
             if(targetId && targetId !== "#"){
                 item.smoothScrollTarget = targetId
+                item.onclick = ''
                 item.addEventListener('click', scrollToObject)
             }else{
-                item.smoothScrollTarget = "#top"
-                console.warn('Scroll: Target is '+targetId+':', item.outerHTML, '\n', Array.from(document.all).indexOf(item) + 'º Element')
+                item.smoothScrollTarget = "#body"
             }
         }
     }

@@ -13,16 +13,16 @@
         <link href="css/animations.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body id="body">
         <div id="page-landing">
             <div id="page-banner">
                 <header class="container" id="page-header">
-                    <img class="inverse-page-header" src="img/logo.png" alt="VR Elétrica Residencial">
+                        <img class="inverse-page-header smooth-scroll" href="#body" src="img/logo.png" alt="VR Elétrica Residencial">
                     <nav>
                         <ul>
-                            <li class="smooth-scroll inverse-page-header" goto="#page-contact">Contato</li>
-                            <li class="smooth-scroll inverse-page-header" goto="#">Link 2</li>
-                            <li class="smooth-scroll inverse-page-header" goto="#">Link 3</li>
+                            <li><a class="smooth-scroll inverse-page-header" href="#page-about">Sobre</a></li>
+                            <li><a class="smooth-scroll inverse-page-header" href="#page-service">Serviços</a></li>
+                            <li><a class="smooth-scroll inverse-page-header" href="#page-contact">Contato</a></li>
                         </ul>
                     </nav>
                 </header>
@@ -34,7 +34,7 @@
                     <br>
                     Não mudamos o que é perfeito nem criamos exceções.</p>
 
-                    <button class="smooth-scroll" onclick="#page-contact" href="#page-contact">Contato</button>
+                    <button class="smooth-scroll" onclick="window.location.href='#page-contact'" href="#page-contact">Contato</button>
                     </section>
                 </main>
             </div>

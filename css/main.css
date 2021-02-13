@@ -15,6 +15,7 @@
     --first-color: #242424;
     --sec-color: #8c8c8c;
     --thr-color: #fff;
+    --nav-hover-color: orange;
 
     font-size: 10px;
 }
@@ -63,8 +64,13 @@ nav ul a, li {
     font-size: 1.6rem;
 }
 
+nav a:hover {
+    color: var(--nav-hover-color)
+}
+
 
 a{
+    color: var(--first-color);
     text-decoration: none;
 }
 
@@ -102,11 +108,6 @@ fieldset button {
 
 
 /*== Class styles ==*/
-
-.inversed {
-    filter: invert(100%);
-}
-
 .nunito {
     font-family: 'Nunito', sans-serif;
     font-weight: 700;
@@ -199,6 +200,11 @@ button {
 
 
 /* === Animations Classes ===*/
+.inversed {
+   animation: inverseColor 1s forwards;
+    animation-play-state: running;
+}
+
 .appear {
     animation : appear 1s forwards;
 }

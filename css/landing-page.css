@@ -90,8 +90,12 @@ main h1 {
     justify-content: space-around;
     min-height: calc(100vh);
     text-align: center;
-
+    
     background: var(--bg-gray);
+}
+
+#page-service .section-message {
+    color: var(--thr-color);
 }
 
 /*== Contact Section ==*/
