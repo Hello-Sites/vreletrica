@@ -1,3 +1,6 @@
+/**== Universal Styles==**/
+
+
 *{
     margin: 0;
     padding:0;
@@ -5,8 +8,18 @@
 }
 
 :root{
+    --bg-white: #fff;
+    --bg-gray: #242424;
+    --bg-gray-s: #f5f5f5;
+
+    --first-color: #242424;
+    --sec-color: #8c8c8c;
+    --thr-color: #fff;
+
     font-size: 10px;
 }
+
+/*== Tag styles ==*/
 
 body {
     background: #fff;
@@ -20,56 +33,39 @@ input,
 button,
 textarea{
     font: 400 1.7rem/1 'Montserrat Alternates', sans-serif;
-    color: #242424;
+    color: var(--first-color);
     line-height: 2rem;
 }
 
+header{
+    width: 100vw;
+    height: 6rem;
+
+    background: var(--bg-white);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: fixed;
+    z-index: 100;
+}
+
+header img {
+    height: 5rem;
+}
+
+nav ul a, li {
+    display: inline;
+    cursor: pointer;
+
+    margin-left: 1.3rem;
+    font-size: 1.6rem;
+}
+
+
 a{
     text-decoration: none;
-}
-
-
-.inversed {
-    filter: invert(100%);
-}
-
-.nunito {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 700;
-}
-
-.container {
-    padding: 0 2rem;
-}
-
-.page-section {
-    width: 100vw;
-    padding: 6rem 0;
-}
-.icon-wallet {
-    background: url('https://images.vexels.com/media/users/3/137089/isolated/preview/c3286d4d32fa90ebcf09b488654612b9-iacute-cone-de-carteira-by-vexels.png');
-    background-size: 3.8rem 3.8rem;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    width: 5.2rem;
-    height: 5.2rem;
-    margin: 0 auto;
-
-    border: 2px solid #242424;
-    border-radius: 100%;
-
-}
-
-button {
-    border-radius: 2px;
-    font-size: 1.5rem;
-    background: none;
-    padding: 0.7rem 1.4rem;
-    font-weight: 400;
-    border: 1px solid #f4f4f4;
-
-    font-family: 'Nunito', sans-serif;
 }
 
 fieldset {
@@ -94,15 +90,80 @@ fieldset textarea{
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 2px;
 
-    background: #fff;
+    background: var(--bg-white);
     color: rgba(0,0,0,0.6);
 
 }
 
 fieldset button {
-    border-color: #242424;
+    border-color: var(--first-color);
     cursor: pointer;
 }
+
+
+/*== Class styles ==*/
+
+.inversed {
+    filter: invert(100%);
+}
+
+.nunito {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+}
+
+.container {
+    padding: 0 2rem;
+}
+
+.page-section {
+    background-color : var(--bg-white);
+    width: 100vw;
+    padding: 6rem 0;
+}
+
+/*== Icons ==*/
+.icon {
+    background-size: 3.8rem 3.8rem;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 5.2rem;
+    height: 5.2rem;
+    margin: 0 auto;
+
+    border: 2px solid var(--first-color);
+    border-radius: 100%;
+}
+
+.wallet {
+    background-image: url('../img/wallet-icon.svg');
+}
+
+.anchor {
+    background-image: url('../img/anchor-icon.svg');
+}
+
+.smile {
+    background-image: url('../img/smile-icon.svg');
+}
+
+.shield {
+    background-image: url('../img/shield-icon.svg');
+}
+
+
+button {
+    border-radius: 2px;
+    font-size: 1.5rem;
+    background: none;
+    padding: 0.7rem 1.4rem;
+    font-weight: 400;
+    border: 1px solid var(--sec-color);
+
+    font-family: 'Nunito', sans-serif;
+}
+
 
 .inline-form-items {
      display: flex;
@@ -134,4 +195,10 @@ fieldset button {
 
 .form-message:first-child{
     line-height: 4rem;
+}
+
+
+/* === Animations Classes ===*/
+.appear {
+    animation : appear 1s forwards;
 }

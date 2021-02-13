@@ -7,8 +7,10 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@200;300;400&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+
         <link href="css/main.css" rel="stylesheet">
         <link href="css/landing-page.css" rel="stylesheet">
+        <link href="css/animations.css" rel="stylesheet">
     </head>
 
     <body>
@@ -38,43 +40,36 @@
             </div>
 
             <div id="page-about" class="container page-section start-hidden">
-                <section id="about-message">
+                <section class="section-message">
                     <h2 class="nunito">Sobre Nós</h2>
-                    <p>Nós amamos o que fazemos. Frase que fica bem aqui</p>
+                    <p>Nós amamos o que fazemos. Nosso maior prazer é a segurança, confiança e satisfação dos nossos clientes.</p>
                 </section>
 
                 <section class="about-flyers">
                     <div class="about-flyer">
-                        <p class="icon-wallet"></p>
-                        <h3 class="nunito">Título</h3>
-                        <p>Descrição deste flyer. Descrição deste flyer. Descrição deste flyer. Descrição deste flyer.</p>
+                        <p class="icon shield"></p>
+                        <h3 class="nunito">Segurança</h3>
+                        <p>Sempre trabalhamos com segurança e para sua segurança.</p>
                     </div>
 
                     <div class="about-flyer">
-                        <p class="icon-wallet"></p>
-                        <h3 class="nunito">Título</h3>
-                        <p>Descrição deste flyer. Descrição deste flyer. Descrição deste flyer. Descrição deste flyer.</p>
+                        <p class="icon anchor"></p>
+                        <h3 class="nunito">Confiabilidade</h3>
+                        <p>Nos preocupamos em seguir todas as normas técnicas.</p>
                     </div>
 
                     <div class="about-flyer">
-                        <p class="icon-wallet"></p>
-                        <h3 class="nunito">Título</h3>
-                        <p>Descrição deste flyer. Descrição deste flyer. Descrição deste flyer. Descrição deste flyer.</p>
+                        <p class="icon smile"></p>
+                        <h3 class="nunito">Compromisso</h3>
+                        <p>Temos compromisso com nossos clientes.</p>
                     </div>
                 </section>
+            </div>
 
-                <section class="about-flyers">
-                    <div class="about-flyer">
-                        <p class="icon-wallet"></p>
-                        <h3 class="nunito">Título</h3>
-                        <p>Descrição deste flyer. Descrição deste flyer. Descrição deste flyer. Descrição deste flyer.</p>
-                    </div>
-
-                    <div class="about-flyer">
-                        <p class="icon-wallet"></p>
-                        <h3 class="nunito">Título</h3>
-                        <p>Descrição deste flyer. Descrição deste flyer. Descrição deste flyer. Descrição deste flyer.</p>
-                    </div>
+            <div id="page-service" class="container page-section start-hidden">
+                 <section class="section-message">
+                    <h2 class="nunito">Serviços</h2>
+                    <p>Nossos serviços são realizados dentro das normas técnicas. Usamos material de qualidade e sempre temos um planejamento. Buscamos não apenas fazer o serviço, mas fazer o melhor.</p>
                 </section>
             </div>
 
@@ -86,7 +81,7 @@
                     </div>
 
                     <div id="price-advise">
-                        <p class="icon-wallet"></p>
+                        <p class="icon wallet"></p>
                         <h3>Desconto</h3>
                         <p>Novos clientes recebem descontos de até 50% em nossos serviços.</p>
                     </div>
@@ -144,8 +139,9 @@
         <script>
             headerColorControl({
             headerId: 'page-header',
-            normal: '#fff',
-            inverted: '#242424'
+            normal: 'rgb(255,255,255)',
+            inverted: 'rgb(34,34,34)',
+            pageTriggers: ['rgb(255,255,255)']
             })
             smoothScroll()
             controllAppearSections()

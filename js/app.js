@@ -1,31 +1,59 @@
-function headerColorControl({headerId, bannerId, normal, inverted}){
+function headerColorControl({headerId, normal, inverted, pageTriggers}){
 
     const header = document.getElementById(headerId)
-    const banner = document.getElementById(bannerId) || header.parentElement
+    const pageSections = document.getElementsByClassName('page-section')
 
-    const color = { false: normal, true: inverted }
+    const colors = { false: normal, true: inverted }
 
     document.addEventListener('scroll', () => {
+        //banner.offsetHeight <  window.pageYOffset + header.offsetHeight
 
-        const isBelow = banner.offsetHeight <  window.pageYOffset + header.offsetHeight
+    const currentSection =  Array.from(pageSections).map( (section, i, arr)=> {
+        section.y = section.getBoundingClientRect().y
+        section.end = section.getBoundingClientRect().bottom
 
-        changeBackgroundColor({
-            element: header,
-            from: getComputedStyle(header, null).getPropertyValue("background-color"), to: color[isBelow] })
-
-
-        for (const child of Array.from(document.getElementsByClassName('inverse-'+headerId)) ){
-            if(isBelow){
-                child.classList.add('inversed')
-            }else{
-                child.classList.remove('inversed')
+        for(const elem of arr){
+            elem.y = elem.getBoundingClientRect().y
+            if(section.y - header.offsetHeight < elem.y && section.y <= 0 + header.offsetHeight && section.end >= 0){
+                return Object.assign(section, {bg: getComputedStyle(section).backgroundColor})
             }
-
         }
+    }).filter((elem)=> {return elem !== undefined})[0]
 
-    })
+    function onTrigger (){
+        if(currentSection && pageTriggers){
+            for(const trigger of pageTriggers){
+                if(trigger.split(' ').join('') === currentSection.bg.split(' ').join('')){
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
+    const currentColors = {
+        header: colors[onTrigger()]
+    }
+    
+    
+    if(getComputedStyle(header, null).backgroundColor.split(' ').join('') !== currentColors.header.split(' ').join('')){
+    	changeBackgroundColor( {
+            from: getComputedStyle(header,null).backgroundColor, to: currentColors.header,
+            element: header
+        })
+    }
+
+    for(const elem of Array.from(document.getElementsByClassName('inverse-'+headerId)) ){
+
+if( onTrigger() ){
+	elem.classList.add('inversed')
+}else{
+	elem.classList.remove('inversed')
 }
+    }
 
+})
+}
 
 
 function changeBackgroundColor({from, to, element})  {
@@ -43,8 +71,6 @@ function smoothScroll(){
         buttons: document.getElementsByTagName('button'),
         generic: document.getElementsByClassName('smooth-scroll')
     }
-
-    console.log(items)
 
     for(const type in items){
         for(const item of items[type]){
@@ -66,8 +92,6 @@ function smoothScroll(){
         const targetElement = document.getElementById(element.smoothScrollTarget.slice(1))
         const target = targetElement? targetElement.offsetTop : 0
 
-        console.info('goning to:', element.smoothScrollTarget)
-
         const header = document.getElementById('page-header')
         const padding = header? header.clientHeight : 0
 
@@ -80,22 +104,19 @@ function smoothScroll(){
 }
 
 function controllAppearSections() {
-    const sections = document.getElementsByClassName('start-hidden')
+    const sections = document.getElementsByClassName('starts-hidden')
     for(const section of sections) {
-        const displayKey = getComputedStyle(section, null).display
-        section.displaySave = displayKey
         section.top = section.offsetTop
-        section.style.display = 'none'
-        sections.items = section
+        section.style.opacity = 0
     }
 
-    document.onwheel = checkAndDisplay
+    document.onscroll = checkAndDisplay
 
     function checkAndDisplay(){
         const scrolled = (document.getElementById('page-banner').getBoundingClientRect().y * -1) + window.innerHeight
         for(const section of sections){
-            if(scrolled >= section.top){
-               section.style.display = section.displaySave
+            if(scrolled > section.top && Array.from(section.classList).includes('appear') === false){
+                section.classList.add('appear')
             }
         }
     }

@@ -1,3 +1,5 @@
+/*== Page Styles ==*/
+
 #page-banner{
     height: 100vh;
 
@@ -8,31 +10,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff8200",endColorstr="#ff4a00",GradientType=1);
 }
 
-header{
-    width: 100vw;
-    height: 6rem;
-
-    background: #fff;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    position: fixed;
-}
-
-header img {
-    height: 5rem;
-}
-
-nav ul a, li {
-    display: inline;
-    cursor: pointer;
-
-    margin-left: 1.3rem;
-    font-size: 1.6rem;
-}
-
+/*== Banner Section ==*/
 
 main{
     display: flex;
@@ -51,7 +29,7 @@ main section {
 main h1,
 main p,
 main button {
-    color: #fff;
+    color: var(--thr-color);
     margin: 2rem 0;
 }
 
@@ -64,6 +42,59 @@ main h1 {
     font-size: 4rem;
     line-height: 4.2rem;
 }
+
+/*== About Styles ==*/
+
+#page-about {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: calc(100vh + 6rem);
+    text-align: center;
+}
+
+#page-about p {
+    color: var(--sec-color);
+}
+
+.about-flyers {
+    display : flex;
+    align-items: center;
+}
+
+.about-flyers div {
+    width: 26vw;
+    min-height: 25rem;
+    margin: 2rem;
+    padding: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--bg-gray-s);
+    border-radius: 5px;
+}
+
+.about-flyers h3 {
+    line-height: 5rem;
+}
+
+/*== Services Section==*/
+#page-service {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: calc(100vh);
+    text-align: center;
+
+    background: var(--bg-gray);
+}
+
+/*== Contact Section ==*/
 
 #page-contact{
     display: flex;
@@ -78,7 +109,7 @@ main h1 {
     border-radius: 4px;
 
     flex-basis: 40%;
-    background: #f5f5f5;
+    background: var(--bg-gray-s);
 }
 
 #contact-flyer {
@@ -96,7 +127,7 @@ main h1 {
 }
 
 #price-advise{
-    border: 1px solid #242424;
+    border: 1px solid var(--first-color);
     border-radius: 5px;
     margin: 0 5rem;
     padding: 3rem;
@@ -110,31 +141,13 @@ main h1 {
     padding: 5rem 3.1rem;
 }
 
-#page-about {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
-    min-height: calc(100vh + 12rem);
-    text-align: center;
+/*== Universal ==*/
+
+.section-message h2 {
+    margin-bottom: 2rem;
 }
 
-.about-flyers {
-    display : flex;
-    align-items: center;
-}
-
-.about-flyers div {
-    width: 26vw;
-    min-height: 20rem;
-    margin: 2rem;
-    padding: 3rem;
-
-    background-color: #f5f5f5;
-
-    border-radius: 5px;
-}
-
-.about-flyers h3 {
-    line-height: 5rem;
+.section-message p {
+    line-height: 2rem;
+    padding: 0 20vw;
 }
