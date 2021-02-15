@@ -75,14 +75,13 @@ function changeBackgroundColor({from, to, element})  {
 
 function smoothScroll(){
     
-    const unsupported = [/Android/i, /webOS/i, /iPhone/i, /iPad/i, /iPod/i, /BlackBerry/i, /Windows Phone/i];
+    const platforms = [/Android/i, /webOS/i, /iPhone/i, /iPad/i, /iPod/i, /BlackBerry/i, /Windows Phone/i]
+    const unsupported = platforms.filter (  (plat) => { return navigator.userAgent.match(plat)} ).length > 0 
     
-    for(const platform of unsupported){
-        if(navigator.userAgent.match(platform)){
+
+        if(unsupported){
             console.warn('Smooth scrolling has been disabled for your device.')
-            return
         }
-    }
     
     const items = {
         links: document.getElementsByTagName('a'),
@@ -96,9 +95,13 @@ function smoothScroll(){
             const targetId = item.getAttribute('href') || item.getAttribute('goto')
             
             if(targetId && targetId !== "#"){
-                item.smoothScrollTarget = targetId
-                item.onclick = ''
-                item.addEventListener('click', scrollToObject)
+		if(unsupported === false) {
+               		item.smoothScrollTarget = targetId
+                	item.onclick = ''
+                	item.addEventListener('click', scrollToObject)	
+		}
+			item.onclick = function () {hideMobileMenu()}
+
             }else{
                 item.smoothScrollTarget = "#body"
             }
@@ -114,9 +117,7 @@ function smoothScroll(){
         const target = targetElement? targetElement.offsetTop : 0
 
         const header = document.getElementById('page-header')
-        header.classList.remove('open')
-        
-        const  padding = window.innerWidth <= 465 ? -60 : 0
+        const  padding = window.innerWidth <= 786 ? -header.clientHeight/2 : 0
         
         const headerSize = header? header.clientHeight + padding : 0
         
@@ -168,10 +169,12 @@ function navColors () {
 function mobileMenu () {
     header = document.getElementById('page-header')
     if(Array.from(header.classList).includes('open')){
-        header.classList.remove('open')
+        hideMobileMenu()
     }else{
         header.classList.add('open')
     }
-    
-    console.log(header.classList)
+}
+
+function hideMobileMenu() {
+	header.classList.remove('open')
 }

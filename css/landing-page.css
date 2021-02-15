@@ -118,7 +118,7 @@ main h1 {
     background: #fff;
     
     flex: 1 1 32rem;
-    max-width: 38rem;
+    max-width: 32rem;
     height: 25rem;
     margin: 1.2rem;
     border-radius: 6px;
@@ -220,12 +220,12 @@ main h1 {
     }
 
     #service-flyer {
-        padding: 10px;
+        padding: 1vw;
     }
     
     #page-contact {
         display: block;  
-        padding: 5rem 10px;
+        padding: 5rem 10vw;
     }
     #page-contact section {
         margin: 5rem 0;
@@ -240,7 +240,9 @@ main h1 {
 
     .section-message p {
         line-height: 2rem;
-        padding: 0 10px;
+        margin: 0 10vw;
+	padding: 0;
+	text-align:  justify;
     }
 }
 
@@ -250,10 +252,10 @@ main h1 {
         padding: 5rem 0;
     }
     .about-flyers div {
-    flex: 1 1 50rem;
-    min-height: auto;
-    margin: 2rem;
-    padding: 3rem;
+    	flex: 1 1 50rem;
+    	min-height: auto;
+    	margin: 2rem;
+    	padding: 3rem;
     }
     
     #price-advise {
