@@ -247,7 +247,7 @@ fieldset button {
 
 /*== Media ==*/
 
-@media screen and (max-width: 465px){
+@media screen and (max-device-width: 768px){
     header {
         height: 12rem;
         top: -6rem;
