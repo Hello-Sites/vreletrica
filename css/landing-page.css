@@ -245,10 +245,6 @@ main h1 {
 }
 
 @media screen and (max-device-width: 768px){
-	
-	main::after{
-	content: 'mobile-landing-page < 768px';
-	}
 
     .about-flyers {
         padding: 5rem 0;

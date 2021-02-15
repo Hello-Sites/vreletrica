@@ -247,7 +247,18 @@ fieldset button {
 
 /*== Media ==*/
 
+@media screen and (max-device-width: 980px) {
+	:root {
+	font-size: 12px;
+	}
+}
+
 @media screen and (max-device-width: 768px){
+
+    :root {
+          font-size: 3vw;
+     }
+
     header {
         height: 12rem;
         top: -6rem;
