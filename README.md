@@ -1,3 +1,3 @@
-# [vreletrica]( https://hello-sites.github.io/vreletrica/)
+# [vreletrica]( https://vreletrica.ml/)
 
 Um site simples para serviços elétricos. 
