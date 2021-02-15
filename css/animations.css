@@ -17,3 +17,12 @@
         -webkit-filter: invert(100%);
     }
 }
+
+@keyframes dropMenu {
+    from {
+        transform: translate(0);
+    }
+    to {
+        transform: translate(0, 6rem);
+    }
+}

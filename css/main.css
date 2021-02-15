@@ -52,6 +52,10 @@ header{
     z-index: 100;
 }
 
+header .menu {
+    display: none;
+}
+
 header img {
     height: 5rem;
 }
@@ -64,8 +68,9 @@ nav ul a, li {
     font-size: 1.6rem;
 }
 
-nav a:hover {
-    color: var(--nav-hover-color)
+nav a:hover,
+nav a[class~="active"]{
+    color: var(--nav-hover-color);
 }
 
 
@@ -188,6 +193,9 @@ fieldset button {
     background-image: url('../img/bxs-dollar.svg');
 }
 
+.menu {
+    background-image: url('../img/bxs-menu.svg');
+}
 
 
 .inline-form-items {
@@ -234,4 +242,53 @@ fieldset button {
 
 .appear {
     animation : appear 1s forwards;
+}
+
+
+/*== Media ==*/
+
+@media screen and (max-width: 465px){
+    header {
+        height: 12rem;
+        top: -6rem;
+        display: grid;
+        grid-template-rows: 2fr;
+        grid-template-columns: 2fr;
+        
+        transition: top .3s;
+        transition-timing-function: ease;
+    }
+    
+    header img {
+        margin-bottom: .5rem;
+        grid-row: 2;
+    }
+    
+    header .menu {
+        display: block;
+        
+        width: 3.9rem;
+        height: 3.9rem;
+        background-size: 3.8rem 3.8rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        grid-row: 2;
+        grid-column: 2;
+        margin-bottom: .5rem;
+    }
+    
+    header[class~="open"] {
+        top: 0;
+    }
+    
+    header[class~="open"] .menu {
+        background-image : url('../img/bxs-x.svg');
+        border: 1px solid var(--first-color);
+        border-radius: 10%;
+    }
+    
+    header nav {
+        text-align: center;
+        grid-column: 1 / 3;
+    }
 }

@@ -199,3 +199,63 @@ main h1 {
     line-height: 2rem;
     padding: 0 20vw;
 }
+
+/*== Media ==*/
+@media screen and (max-width: 768px){
+    
+    main {
+        max-width: 100vw;
+    }
+    main section{
+        text-align: left;
+    }
+    main h1 {
+        font-size: 3.5rem;
+        line-height: 6rem;
+    }
+    
+    
+    main button {
+        display: none;
+    }
+
+    #service-flyer {
+        padding: 10px;
+    }
+    
+    #page-contact {
+        display: block;  
+        padding: 5rem 10px;
+    }
+    #page-contact section {
+        margin: 5rem 0;
+    }
+    #page-contact .inline-form-items {
+        display: block;
+    }
+    
+    .section-message h2 {
+    margin-bottom: 5rem;
+    }
+
+    .section-message p {
+        line-height: 2rem;
+        padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 465px){
+    .about-flyers {
+        padding: 5rem 0;
+    }
+    .about-flyers div {
+    flex: 1 1 50rem;
+    min-height: auto;
+    margin: 2rem;
+    padding: 3rem;
+    }
+    
+    #price-advise {
+        margin: 5rem 0;
+    }
+}

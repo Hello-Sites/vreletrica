@@ -17,14 +17,15 @@
         <div id="page-landing">
             <div id="page-banner">
                 <header class="container" id="page-header">
-                        <img class="inverse-page-header smooth-scroll" href="#body" src="img/logo.png" alt="VR Elétrica Residencial">
+                    <img class="inverse-page-header smooth-scroll" href="#body" src="img/logo.png" alt="VR Elétrica Residencial">
                     <nav>
                         <ul>
-                            <li><a class="smooth-scroll inverse-page-header" href="#page-about">Sobre</a></li>
-                            <li><a class="smooth-scroll inverse-page-header" href="#page-service">Serviços</a></li>
-                            <li><a class="smooth-scroll inverse-page-header" href="#page-contact">Contato</a></li>
+                            <li><a class="smooth-scroll inverse-page-header nav-link" href="#page-about">Sobre</a></li>
+                            <li><a class="smooth-scroll inverse-page-header nav-link" href="#page-service">Serviços</a></li>
+                            <li><a class="smooth-scroll inverse-page-header nav-link" href="#page-contact">Contato</a></li>
                         </ul>
                     </nav>
+                    <p class="menu inverse-page-header" onclick="mobileMenu()"></p>
                 </header>
 
                 <main class="container">
@@ -183,6 +184,7 @@
             })
             smoothScroll()
             controllAppearSections()
+            navColors()
         </script>
     </body>
 </html>

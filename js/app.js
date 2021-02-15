@@ -1,4 +1,8 @@
-function headerColorControl({headerId, normal, inverted, pageTriggers}){
+var prop = {
+    currentTab : undefined
+}
+
+function headerColorControl ( {headerId, normal, inverted, pageTriggers} ){
 
     const header = document.getElementById(headerId)
     const pageSections = document.getElementsByClassName('page-section')
@@ -14,17 +18,15 @@ function headerColorControl({headerId, normal, inverted, pageTriggers}){
     const currentSection =  Array.from(pageSections).map( (section, i, arr)=> {
         section.y = section.getBoundingClientRect().y
         section.end = section.getBoundingClientRect().bottom
-
-        for(const elem of arr){
-            elem.y = elem.getBoundingClientRect().y
             
-            //TODO: Aumentar o trigger para que quando clicar no link já mudar a cor do header.
-            if(section.y - header.offsetHeight < elem.y && section.y <= 0 + header.offsetHeight && section.end >= 0){
-                return Object.assign(section, {bg: getComputedStyle(section).backgroundColor})
-            }
+        const padding = window.innerWidth <= 465 ? -40 : 20
+        if(section.y < header.offsetHeight + padding && section.end > header.offsetHeight + padding){
+            return Object.assign(section, {bg: getComputedStyle(section).backgroundColor})
         }
+        
     }).filter((elem)=> {return elem !== undefined})[0]
-
+    prop.currentTab = currentSection
+        
     function onTrigger (){
         if(currentSection && pageTriggers){
             for(const trigger of pageTriggers){
@@ -46,6 +48,7 @@ function headerColorControl({headerId, normal, inverted, pageTriggers}){
             from: getComputedStyle(header,null).backgroundColor, to: currentColors.header,
             element: header
         })
+        navColors()
     }
 
     for(const elem of Array.from(document.getElementsByClassName('inverse-'+headerId)) ){
@@ -106,17 +109,22 @@ function smoothScroll(){
         event.preventDefault()
 
         const element = event.originalTarget.smoothScrollTarget? event.originalTarget: false
+        if(element === false){ return}
         const targetElement = document.getElementById(element.smoothScrollTarget.slice(1))
         const target = targetElement? targetElement.offsetTop : 0
 
         const header = document.getElementById('page-header')
-        const padding = header? header.clientHeight : 0
-
+        header.classList.remove('open')
+        
+        const  padding = window.innerWidth <= 465 ? -60 : 0
+        
+        const headerSize = header? header.clientHeight + padding : 0
+        
+        
         window.scroll({
-            top: target - padding,
+            top: target - headerSize,
             behavior: 'smooth'
         })
-
     }
 }
 
@@ -139,3 +147,31 @@ function controllAppearSections() {
     }
 }
 
+function navColors () {
+    if(prop.currentTab){
+    NavLink = Array.from(document.getElementsByClassName('nav-link')).filter( (link)=> {
+        const active = prop.currentTab.id === link.getAttribute('href').slice(1)
+        if(active === false){ link.classList.remove('active')}
+        return active
+        
+    })[0]
+        
+    NavLink.classList.add('active')
+        
+    }else{
+        for(const link of document.getElementsByClassName('nav-link')){
+            link.classList.remove('active')
+        }
+    }
+}
+
+function mobileMenu () {
+    header = document.getElementById('page-header')
+    if(Array.from(header.classList).includes('open')){
+        header.classList.remove('open')
+    }else{
+        header.classList.add('open')
+    }
+    
+    console.log(header.classList)
+}
