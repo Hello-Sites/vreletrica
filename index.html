@@ -3,7 +3,7 @@
     <head>
         <title>VR Elétrica</title>
         <meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale="1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@200;300;400&display=swap" rel="stylesheet">
@@ -26,12 +26,12 @@
                             <li><a class="smooth-scroll inverse-page-header nav-link" href="#page-contact">Contato</a></li>
                         </ul>
                     </nav>
-                    <p class="menu inverse-page-header" onclick="mobileMenu()"></p>
+                    <p id="header-nav-menu" class="menu inverse-page-header"></p>
                 </header>
 
                 <main class="container">
                     <section>
-                    <h1 class="nunito">Segurança e Confiabilidade</h1>
+                    <h1 class="nunito write-style">Segurança e Confiabilidade</h1>
                     <p>Temos como princípio a segurança e confiabilidade de nossos clientes.
                     <br>
                     Não mudamos o que é perfeito nem criamos exceções.</p>
@@ -176,16 +176,5 @@
         </div>
         <script src="js/app.js"></script>
         <script src="js/contact-form.js"></script>
-        <script>
-            headerColorControl({
-            headerId: 'page-header',
-            normal: 'rgb(255,255,255)',
-            inverted: 'rgb(34,34,34)',
-            pageTriggers: ['rgb(255,255,255)']
-            })
-            smoothScroll()
-            controllAppearSections()
-            navColors()
-        </script>
     </body>
 </html>

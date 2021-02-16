@@ -17,7 +17,7 @@
     --thr-color: #fff;
     --nav-hover-color: orange;
 
-    font-size: 10px;
+    font-size: 0.7326vw;
 }
 
 /*== Tag styles ==*/
@@ -249,14 +249,14 @@ fieldset button {
 
 @media screen and (max-device-width: 980px) {
 	:root {
-	font-size: 12px;
+	font-size: .74vw;
 	}
 }
 
 @media screen and (max-device-width: 768px){
 
     :root {
-          font-size: 2.9vw;
+          font-size: 2.3vw;
      }
 
     header {
@@ -286,6 +286,8 @@ fieldset button {
         grid-row: 2;
         grid-column: 2;
         margin-bottom: .5rem;
+
+	transition: .2s;
     }
     
     header[class~="open"] {
@@ -293,6 +295,7 @@ fieldset button {
     }
     
     header[class~="open"] .menu {
+	transform: rotate(-90deg);
         background-image : url('../img/bxs-x.svg');
         border: 1px solid var(--first-color);
         border-radius: 10%;

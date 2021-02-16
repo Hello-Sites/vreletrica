@@ -207,11 +207,12 @@ main h1 {
         max-width: 100vw;
     }
     main section{
-        text-align: left;
+        text-align: justify;
     }
     main h1 {
-        font-size: 3.5rem;
+        font-size: 4.2rem;
         line-height: 6rem;
+	text-align: center;
     }
     
     
