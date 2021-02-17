@@ -8,7 +8,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@200;300;400&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
-
+        
+        <link href="css/normalize.css" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet">
         <link href="css/landing-page.css" rel="stylesheet">
         <link href="css/animations.css" rel="stylesheet">
@@ -75,42 +76,54 @@
                 </section>
                 
                 <section id="service-flyer">
-                    <div>
+                    <div name="Instalação Completa">
                         <p class="icon box"></p>
                         <h2 class="nunito">Instalação Completa</h2>
                         <p>Instalação elétrica completa incluindo padrão de entrada.</p>
                     </div>
                     
-                    <div>
+                    <div name="Instalação Individual">
                         <p class="icon briefcase"></p>
                         <h2 class="nunito">Instalação Individual</h2>
                         <p>Instalação de pontos individuais como tomadas e spots.</p>
                     </div>
                     
-                    <div>
+                    <div  name="Instalação de Padrão">
                         <p class="icon bulb"></p>
                         <h2 class="nunito">Instalação de Padrão</h2>
                         <p>Instalação de padrão de entrada Enel e Cerci.</p>
                     </div>
                     
-                    <div>
+                    <div name="Manutenção">
                         <p class="icon stopwatch"></p>
                         <h2 class="nunito">Serviços de Manutenção</h2>
                         <p>Manutenção completa e individual da instalação elétrica.</p>
                     </div>
                     
-                    <div>
+                    <div name="Reforma">
                         <p class="icon wrench"></p>
                         <h2 class="nunito">Serviços de Reforma</h2>
                         <p>Reforma completa e parcial da instalação elétrica.</p>
                     </div>
                     
-                    <div>
+                    <div class="exclude-service-list">
                         <p class="icon dollar"></p>
                         <h2 class="nunito">Desconto</h2>
                         <p>Novos clientes recebem descontos de até 50% em nossos serviços.</p>
                     </div>
                 </section>
+                
+                <p id="contact-service-select-text">Clique em um serviço para selecioná-lo.</p>
+                
+                <div id="pop-selected-services">
+                    <span id="selected-service-count">1</span>
+                    <div>
+                    <h3>Serviços Selecionados</h3>
+                        <button id="contact-service-select" class="smooth-scroll" onclick="window.location.href='#contact-form'" href="#contact-form">
+                            Solicitar 
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div id="page-contact" class="container page-section start-hidden">
@@ -132,7 +145,7 @@
                         <h2 class="nunito">Enviado com sucesso!</h2>
                         <p>Agradeçemos seu contato. Retornaremos em breve!</p>
                     </div>
-                    <form  id="gform" name="gform" target="hidden_iframe" onsubmit="submitted=true; showSendingMessage('gform')" action="https://docs.google.com/forms/d/e/1FAIpQLSeiUv8g2cxeVbahsw5gFKJ6rxJast9Ys-kejeP1hOBTH4izLg/formResponse?">
+                    <form  id="gform" name="gform" target="hidden_iframe" onsubmit="this.submitted=true; showSendingMessage('gform');" action="https://docs.google.com/forms/d/e/1FAIpQLSeiUv8g2cxeVbahsw5gFKJ6rxJast9Ys-kejeP1hOBTH4izLg/formResponse?">
                             <fieldset>
 
                             <div class="inline-form-items">
@@ -150,9 +163,17 @@
                                 <label for="entry.1448010343">Email</label>
                                 <input pattern="Math.random()" type="text" onfocus="checkValidEmail(this.id)" onclick="checkValidEmail(this.id)" name="entry.1448010343" id="entry.1448010343" required>
                             </div>
+                                
+                            <div>
+                                <label id="service-form-list-label" for="entry.151389908">Serviços Selecionados</label>
+                                <div id="services-form-list">
+                                </div>
+                                <input type="text" name="entry.151389908" id="entry.151389908" style="display: none;">
+                            </div>
+                                
                             <div>
                                 <label for="entry.1078412721">Como podemos ajudá-lo?</label>
-                                <textarea type="text" name="entry.1078412721" id="entry.1078412721" rows="7" style="resize: none"></textarea>
+                                <textarea type="text" name="entry.1078412721" id="entry.1078412721" rows="7" style="resize: none" required></textarea>
                             </div>
 
                             <div class="contact-checkbox">
@@ -166,7 +187,7 @@
                         </fieldset>
                     </form>
 
-                    <iframe id="hidden_iframe" name="hidden_iframe" style="display: none;" onload="if(submitted){successfullySubmittedForm('gform')}"></iframe>
+                    <iframe id="hidden_iframe" name="hidden_iframe" style="display: none;" onload="if(document.getElementById('gform').submitted){successfullySubmittedForm('gform')}"></iframe>
                 </section>
             </div>
 

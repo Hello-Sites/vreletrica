@@ -88,6 +88,8 @@ button {
     border: 1px solid var(--thr-color);
 
     font-family: 'Nunito', sans-serif;
+    
+    cursor: pointer;
 }
 
 fieldset {
@@ -229,7 +231,6 @@ fieldset button {
 .form-message:first-child{
     line-height: 4rem;
 }
-
 
 /* === Animations Classes ===*/
 .inversed {

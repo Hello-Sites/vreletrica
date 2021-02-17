@@ -102,7 +102,7 @@ function createApp () {
                         item.onclick = ''
                         item.addEventListener('click', scrollToObject)	
             }
-                item.onclick = function () {hideMobileMenu()}
+                item.addEventListener('click', hideMobileMenu())
 
                 }else{
                     item.smoothScrollTarget = "#body"
@@ -188,9 +188,129 @@ function createApp () {
         header = document.getElementById('page-header')
         header.classList.remove('open')
     }
+    function writeStyle () {
+        
+    }
+    
+    function serviceSelector() {
+        let sended = false
+        
+        const servicesSelected = {}
+        const flyer = document.getElementById('service-flyer')
+        const sendButton = document.getElementById('contact-service-select')
+        const HiddenIframe = document.getElementById('hidden_iframe')
+        const servicesPop = document.getElementById('pop-selected-services')
+        const formList = document.getElementById('services-form-list')
+        
+        HiddenIframe.addEventListener('load', ()=> {
+           if(document.getElementById('gform').submitted){
+               for(const service of flyer.children){
+                    service.classList.remove('service-selected')
+                    service.onclick = null;
+               }
+           }
+        })
+        
+        sendButton.addEventListener('click', ()=> {
+            const services = Object.keys(servicesSelected).map( (e)=> {
+                return {
+                    name: servicesSelected[e].getAttribute('name'),
+                    id: e
+                }
+                
+            })
+        
+        document.getElementById('entry.151389908').value = services.map( e => {return e.name}).join(', ')
+        
+        Array.from(formList.children).forEach( (child)=> {
+            formList.removeChild(child)
+        })
+            
+        for(const service of services){
+            const item = document.createElement('p')
+            item.innerHTML = service.name
+            
+            const removeItem = document.createElement('span')
+            removeItem.classList.add('remove')
+            removeItem.onclick = function () {
+                formList.removeChild(item)
+                servicesSelected[service.id].classList.remove('service-selected')
+                removeService(service.id)
+            }
+            
+            item.appendChild(removeItem)
+            formList.appendChild(item)
+            document.getElementById('service-form-list-label').classList.add('display')
+        }
+            
+        servicesPop.classList.remove('display')
+        })
+        
+        for(const service of flyer.children){
+            if(Array.from(service.classList).includes('exclude-service-list') === false) {
+                service.selectorId = Object.keys(flyer.children).filter( (e) => { return flyer.children[e] === service})
 
-    function writeStyle() {
+                const removeButton = document.createElement('p')
+                removeButton.classList.add('service-remove')
 
+                removeButton.onclick = function () {
+                    service.classList.remove('service-selected')
+                    const insFormList = Array.from(formList.children).filter( (c)=> {
+                        return c.getAttribute('name') === service.getAttribute('name')
+                    })
+                    
+                const insideList = Array.from(formList.children).filter((c) => {return c.textContent === service.getAttribute('name')})
+                
+                if(insideList[0]){
+                    formList.removeChild(insideList[0])
+                }
+                }
+
+                service.insertBefore(removeButton, service.children[0])
+                service.onclick = function (){
+                    const selected = Object.keys(servicesSelected).map( (e) => {return servicesSelected[e].selectorId})
+                    
+                    if(selected.includes(service.selectorId) === false){
+                        service.classList.add('service-selected')
+
+                        servicesSelected[service.selectorId] = service
+                        
+                        servicesPop.classList.add('display')
+                        document.getElementById('contact-service-select-text').style.display = 'none'
+                        document.getElementById('selected-service-count').innerHTML = Object.keys(servicesSelected).length
+                    }else{
+                        delete  servicesSelected[service.selectorId] 
+                        
+                        document.getElementById('selected-service-count').innerHTML = Object.keys(servicesSelected).length
+                        
+                        if(Object.keys(servicesSelected).length === 0){
+                            servicesPop.classList.remove('display')
+                            document.getElementById('contact-service-select-text').style.display = 'block'
+                        }
+                    }
+                }
+            }
+        }
+        
+        function removeService(id){
+            servicesSelected[id].classList.remove('service-selected')
+            delete servicesSelected[id]
+            
+            document.getElementById('selected-service-count').innerHTML = Object.keys(servicesSelected).length
+            
+            if(Object.keys(servicesSelected).length === 0){
+                document.getElementById('service-form-list-label').classList.remove('display')
+                document.getElementById('contact-service-select-text').style.display = 'block'
+                servicesPop.classList.remove('display')
+                
+            }
+        }
+        
+        document.removeService = removeService
+        
+        function disableComponent () {
+            
+        }
     }
 
     return {
@@ -201,6 +321,7 @@ function createApp () {
         navColors,
         writeStyle,
         mobileMenu,
+        serviceSelector,
     }
 }
 
@@ -218,6 +339,6 @@ app.headerColorControl({
 app.smoothScroll()
 app.controllAppearSections()
 app.navColors()
-app.writeStyle()
+app.serviceSelector()
 
 app.mobileMenu()

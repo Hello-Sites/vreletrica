@@ -127,6 +127,184 @@ main h1 {
     text-align: left;
     
     padding: 2rem;
+    
+    cursor: pointer;
+    
+    transition: .2s;
+}
+
+#service-flyer .service-selected {
+    cursor: default;
+
+    box-shadow: 0 0 10px 10px rgba(0,0,0,0.6);
+    transform: scale(1.02);
+    transform: translateY(-1rem);
+        
+    pointer-events: none;
+    
+}
+
+#service-flyer div:not(:last-child):not(.service-selected):hover {
+    transform: translateZ(100);
+    box-shadow: 0 0 14px 14px rgba(0,0,0,0.4);
+}
+
+.service-remove {
+    pointer-events: all;
+    
+    float: right;
+    width: 4rem;
+    height: 4rem;
+    
+    border: 1px solid #000;
+    border-radius: 4px;
+    
+    cursor: pointer;
+    background-image: url('../img/bxs-x.svg');
+    background-size: cover;
+    background-position: center;
+    
+    display: none;
+    opacity: 0;
+    
+    z-index: 100;
+}
+
+
+.service-selected .service-remove {
+    display: block;
+    opacity: 1;
+}
+
+#service-form-list-label {
+    display: none;
+    opacity: 0;
+    transition: .2s;
+}
+
+#service-form-list-label[class="display"] {
+    display: block;
+    opacity: 1;
+}
+
+#services-form-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    font-size: 1.35rem;
+}
+
+#services-form-list p {
+    margin-right: 1rem;
+    margin-bottom: .5rem;
+    background: #fff;
+    padding: .2rem .5rem;
+    border-radius: 20px;
+}
+
+#services-form-list p:hover {
+    background-color: rgba(252, 28, 3, .3);
+}
+
+#services-form-list p span {
+    cursor: pointer;
+    width: 1.35rem;
+    height: 1.35rem;
+    padding-left: .7rem;
+}
+
+#services-form-list p span::before {
+    content: '\2715';
+    color: red;
+    
+    transform: translateX(1.35rem);
+}
+
+#services-form-list p .remove {
+    content: '\2713';
+    margin-right: .5rem;
+    color: orange;
+}
+
+#contact-service-select {
+    width: 9rem;
+    height: 3.5rem;
+    margin: 1.2rem;
+    border-radius: 6px;
+    background: #fff;
+    
+    display: block;
+    
+    pointer-events: none;
+    
+    transition: .2s;
+    border: 1px solid var(--first-color);
+}
+
+#contact-service-select:hover {
+    border: 2px solid var(--first-color);
+}
+
+#pop-selected-services {
+    
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+    opacity: 0;
+    
+    height: 6rem;
+    
+    font-size: 1.3rem;
+    
+    border-radius: 6px;
+    
+    box-shadow: 0 0 18px 18px rgba(0,0,0, .2);
+    background: var(--bg-white);
+    
+    transition: .2s;
+}
+
+#pop-selected-services[class~="display"] {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+    transform: translateX(0);
+}
+
+#pop-selected-services[class~="display"] button {
+    pointer-events: all;
+}
+
+#pop-selected-services div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    transform: translateX(-1rem);
+}
+
+
+#selected-service-count {
+    float: left;
+    
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    
+    color: var(--thr-color);
+    background: orange;
+    border-radius: 50%;
+    
+    padding-top: .6rem;
+    font-size: 1.8rem;
+    
+    transform: translate(-1rem, -1rem);
+}
+
+
+#contact-service-select-text {
+    color: var(--sec-color);
+    animation: opacity 3s infinite alternate;
 }
 
 #service-flyer div p {
@@ -153,7 +331,7 @@ main h1 {
 
 #page-contact section{
     width: auto;
-    height: 55rem;
+    min-height: 55rem;
     border-radius: 4px;
 
     flex-basis: 40%;
@@ -261,5 +439,29 @@ main h1 {
     
     #price-advise {
         margin: 5rem 0;
+    }
+    
+    #contact-service-select-text{
+        margin-top: 7rem;
+        font-size: 2rem;
+    }
+    
+    #pop-selected-services {
+    position: fixed;
+    bottom: 2.2rem;
+    left: 2rem;
+    opacity: 0;
+    min-width: calc(100vw - 4rem);
+    box-shadow: 0 0 12px 12px rgba(0,0,0, .2);
+    
+    
+    }
+
+    #pop-selected-services div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        transform: translateX(-1rem);
     }
 }
