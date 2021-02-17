@@ -19,7 +19,7 @@
         <div id="page-landing">
             <div id="page-banner">
                 <header class="container" id="page-header">
-                    <img class="inverse-page-header smooth-scroll" href="#body" src="img/logo.png" alt="VR Elétrica Residencial">
+                    <img class="inverse-page-header smooth-scroll" href="#body" src="img/logo.png" alt="VR Elétrica Residencial" title="VR Elétrica Residencial">
                     <nav>
                         <ul>
                             <li><a class="smooth-scroll inverse-page-header nav-link" href="#page-about">Sobre</a></li>
@@ -76,7 +76,7 @@
                 </section>
                 
                 <section id="service-flyer">
-                    <div name="Instalação Completa">
+                    <div name="Instalação Completa" >
                         <p class="icon box"></p>
                         <h2 class="nunito">Instalação Completa</h2>
                         <p>Instalação elétrica completa incluindo padrão de entrada.</p>
@@ -150,18 +150,21 @@
 
                             <div class="inline-form-items">
                                 <div>
-                                    <label for="entry.792630165">Nome</label>
-                                    <input type="text" name="entry.792630165" id="entry.792630165" required>
+                                    <label autocomplete="on" for="entry.792630165">Nome <span title="campo obrigatório">*</span></label>
+                                    <input type="text" name="entry.792630165" id="entry.792630165"  title="Insira seu nome" required>
+                                    <span>Insira seu nome</span>
                                 </div>
                                 <div>
-                                    <label for="entry.760884296">Sobrenome</label>
-                                    <input type="text" name="entry.760884296" id="entry.760884296" required>
+                                    <label for="entry.760884296">Sobrenome <span title="campo obrigatório">*</span></label>
+                                    <input autocomplete="on" type="text" name="entry.760884296" id="entry.760884296" title="Insira seu sobrenome" required>
+                                    <span>Insira seu sobrenome</span>
                                 </div>
                             </div>
 
                             <div>
-                                <label for="entry.1448010343">Email</label>
-                                <input pattern="Math.random()" type="text" onfocus="checkValidEmail(this.id)" onclick="checkValidEmail(this.id)" name="entry.1448010343" id="entry.1448010343" required>
+                                <label for="entry.1448010343">Email <span title="campo obrigatório">*</span></label>
+                                <input autocomplete="on" class="email-field" pattern="Math.random()" type="text" onfocus="checkValidEmail(this.id)" onclick="checkValidEmail(this.id)" name="entry.1448010343" id="entry.1448010343" title="exemplo@email.com" required>
+                                <span>Formato: exemplo@email.com</span>
                             </div>
                                 
                             <div>
@@ -172,13 +175,14 @@
                             </div>
                                 
                             <div>
-                                <label for="entry.1078412721">Como podemos ajudá-lo?</label>
-                                <textarea type="text" name="entry.1078412721" id="entry.1078412721" rows="7" style="resize: none" required></textarea>
+                                <label for="entry.1078412721">Como podemos ajudá-lo? <span title="campo obrigatório">*</span></label>
+                                <textarea type="text" name="entry.1078412721" id="entry.1078412721" rows="7" style="resize: none" title="Como podemos ajudá-lo?" required></textarea>
+                                <span>Diga como podemos ajudá-lo</span>
                             </div>
 
                             <div class="contact-checkbox">
                                 <input type="checkbox" name="entry.2095266014" id="entry.2095266014" value="Urgente">
-                                <label class ="checkbox-label" for="entry.2095266014">Urgente</label>
+                                <label class ="checkbox-label" for="entry.2095266014" title="Prioridade">Urgente</label>
                             </div>
 
                             <div>
@@ -192,7 +196,21 @@
             </div>
 
             <footer>
-
+                <p>2020 &copy; HugoRodrigues</p>
+                
+                <ul class="social-media-icons">
+                    <a href="https://www.facebook.com/VR-Elétrica-Residencial-111143404026127/" target="_blank" title="Facebook">
+                        <li class="facebook">
+                        <p class="facebook-icon"></p>
+                    </li>
+                    </a>
+                    <a href="https://github.com/hello-sites" target="_blank" title="GitHub">
+                    <li class="github">
+                        <p class="github-icon"></p>
+                    </li>
+                    </a>
+                </ul>
+             
             </footer>
         </div>
         <script src="js/app.js"></script>

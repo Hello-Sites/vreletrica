@@ -96,7 +96,7 @@ function createApp () {
             for(const item of items[type]){
                 const targetId = item.getAttribute('href') || item.getAttribute('goto')
 
-                if(targetId && targetId !== "#"){
+                if(targetId && targetId !== "#" && targetId.match('http') === false && targetId.match('https') === false){
             if(unsupported === false) {
                         item.smoothScrollTarget = targetId
                         item.onclick = ''
@@ -308,10 +308,34 @@ function createApp () {
         
         document.removeService = removeService
         
-        function disableComponent () {
-            
-        }
     }
+    
+    function randomPlaceHolder () {
+        const datas ={
+            name: ['Hugo', 'Pedro', 'Joana', 'Maria', 'Felipe', 'Galvão', 'Lúcia', 'Bianca', 'José', 'Eduardo'][Math.floor(Math.random() * 9)],
+            surname: ['Silva', 'Costa', 'Santos', 'Rodrigues', 'Rocha', 'Pereira', 'Moreira'][Math.floor(Math.random() * 6)]
+        }
+        
+        const fields = {
+            name : document.getElementById('entry.792630165'),
+            surname: document.getElementById('entry.760884296'),
+            email: document.getElementById('entry.1448010343')
+        }
+        
+        for(const type in fields){
+            if(datas[type]) {
+                fields[type].setAttribute('placeholder', datas[type])
+            }else{
+                function replace (str) {
+                    str = str.replace(/[àáâãäå]/g,"a");
+                    str = str.replace(/[úũú]/g,"u");
+                    str = str.replace(/[éẽè]/g,"e");
+                    return str
+                }
+                fields[type].setAttribute('placeholder', (replace(datas.name) + replace(datas.surname)).toLocaleLowerCase() + '@exemplo.com')
+            }
+        }
+        }
 
     return {
         publicKey,
@@ -322,6 +346,7 @@ function createApp () {
         writeStyle,
         mobileMenu,
         serviceSelector,
+        randomPlaceHolder
     }
 }
 
@@ -342,3 +367,4 @@ app.navColors()
 app.serviceSelector()
 
 app.mobileMenu()
+app.randomPlaceHolder()
