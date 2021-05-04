@@ -176,7 +176,17 @@ function createApp () {
             }else{
                 showMobileMenu()
             }
+
+
         }
+
+       const navlinks = document.getElementsByClassName('nav-link')
+
+       for (const link of navlinks){
+          link.addEventListener('click',()=>{
+          hideMobileMenu()
+          })
+       }
     }
     
     function showMobileMenu() {
